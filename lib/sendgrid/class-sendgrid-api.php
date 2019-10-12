@@ -34,6 +34,21 @@ class Sendgrid_API implements Sendgrid_Send {
       'decompress' => false,
       'timeout' => Sendgrid_Tools::get_request_timeout()
     );
+  
+    //- quick hack to add in support for sandbox mode
+    if( defined( 'SENDGRID_SANDBOX' ) ){
+
+      $body = json_decode( $data['body'] );
+
+      $body->mail_settings = [
+        'sandbox_mode' => [ 
+          'enable' => true
+        ]
+      ];
+
+      $data['body'] = json_encode( $body );
+
+    }
 
     // Send the request
     $response = wp_remote_post( self::URL, $data );
