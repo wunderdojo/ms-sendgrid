@@ -1,16 +1,19 @@
 
 # SendGrid
 
-* Contributors: SendGrid 
-* Donate link: http://sendgrid.com/
+* Contributors: Member Splash 
 * Tags: email, email reliability, email templates, sendgrid, smtp, transactional email, wp_mail,email infrastructure, email marketing, marketing email, deliverability, email deliverability, email delivery, email server, mail server, email integration, cloud email
 * Requires at least: 4.6
-* Tested up to: 4.9
+* Tested up to: 5.2
 * Stable tag: 1.11.8
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Send emails and upload contacts through SendGrid from your WordPress installation using SMTP or API integration.
+
+## Why this Fork
+
+As of 2019 activity on the official SendGrid plugin appears to have been abandoned (https://wordpress.org/plugins/sendgrid-email-delivery-simplified/). Member Splash has forked the plugin and is taking on further development in-house.
 
 ## Description
 
@@ -26,11 +29,6 @@ For more details, <a href="https://sendgrid.com/docs/Integrate/Tutorials/WordPre
 
 For assistance you can contact SendGrid Support from the <a href="https://support.sendgrid.com/">SendGrid Support Portal</a>. Click **Login & Contact Support**, and then **Contact Support** to see your support contact options. Paying SendGrid customers have the option to contact support via phone, chat, or by submitting a ticket using our web form. All SendGrid customers have the option to submit a ticket using our web form.
 
-### Agency Program
-
-Are you sending emails on behalf of your clients? SendGrid's Agency Program offers exclusive pricing and support for agencies looking to improve their email program. 
-
-Want to learn more? Visit the <a href="https://www.sendgrid.com/partners/agencies">SendGrid Agency Page </a> 
 
 ### The Subscription Widget
 
@@ -47,11 +45,18 @@ Warning! When you activate SendGrid management for a subsite, that site will not
 
 If you already had the plugin installed in a Multisite environment and you update to versions after 1.9.0 you may need to reconfigure your plugin.
 
+## SandBox Mode
+
+To test the SendGrid API but not actually send emails you can use the Sandbox Mode. In wp-config.php define the following constant:
+```php
+define( 'ENV_DEVELOPMENT', true );
+```
+
 ## Installation
 
 Requirements:
 
-1. PHP version >= 5.6 and <= 7.1. Installing this plugin on PHP versions 5.3 and earlier will cause your website to break. Installation on PHP versions 5.4 and 5.5 will work but it is not recommended.
+1. PHP version >= 5.6 and <= 7.3. Installing this plugin on PHP versions 5.3 and earlier will cause your website to break. Installation on PHP versions 5.4 and 5.5 will work but it is not recommended.
 2. To send emails through SMTP you need to install also the 'Swift Mailer' plugin.
 3. If wp_mail() function has been declared by another plugin that you have installed, you won't be able to use the SendGrid plugin
 
@@ -162,10 +167,6 @@ add_filter( 'sendgrid_mail_html', 'change_sendgrid_html_email' );
 Note that all HTML emails sent through our plugin also contain the HTML body in the text part and that content will pass through the "sendgrid_mail_text" filter as well.
 
 ## Frequently asked questions
-
-### Does SendGrid have an Agency program?
-
-Yes. If you are sending email on behalf of clients you can find more information on <a href="https://www.sendgrid.com/partners/agencies/">SendGrid's Agency page </a>
 
 ### Is there any official documentation for this plugin ?
 
@@ -315,6 +316,9 @@ The value is in seconds, this means that API requests will wait 10 seconds for a
 ![screenshot-11](/assets/screenshot-12.png)
 
 ## Changelog
+
+**1.11.9**
+First Member Splash version. Added a simple implementation of the SendGrid sandbox as detailed here: https://github.com/sendgrid/wordpress/issues/45
 
 **1.11.7**
 * Added a configuration parameter of API request timeout in seconds
