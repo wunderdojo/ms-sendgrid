@@ -10,7 +10,7 @@
         <tr valign="top" class="apikey">
           <th scope="row"><?php _e("API Key: "); ?></th>
           <td>
-            <input type="password" id="sendgrid_general_apikey" name="sendgrid_apikey" class="sendgrid-settings-key" value="<?php echo ( $is_env_api_key ? "************" : $api_key );  ?>" <?php disabled( $is_env_api_key ); ?>>
+            <input type="text" id="sendgrid_general_apikey" name="sendgrid_apikey" class="sendgrid-settings-key" value="<?php echo ( $is_env_api_key ? "************" : $api_key );  ?>" <?php disabled( $is_env_api_key ); ?>>
           </td>
         </tr>
         <tr valign="top" class="send_method">

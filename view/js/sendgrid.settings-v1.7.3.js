@@ -102,7 +102,7 @@ jQuery(document).ready(function($) {
   }
 
   // save form on unfocus mc_apikey
-  if ( typeof old_mc_api_key == 'undefined' ) {
+ /** if ( typeof old_mc_api_key == 'undefined' ) {
     old_mc_api_key = $("#mc_apikey").val();
   }
   $("#mc_apikey").focusout(function() {
@@ -121,7 +121,7 @@ jQuery(document).ready(function($) {
     if ( old_general_api_key != new_general_api_key ) {
       $("#sendgrid_general_settings_form").submit();
     }
-  });
+  }); **/
 
 
   $('#select_unsubscribe_group').select2({
